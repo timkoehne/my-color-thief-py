@@ -3,23 +3,20 @@ Color Thief
 
 A Python module for grabbing the color palette from an image.
 
-Installation
-------------
+The library defaults to ignore white as a dominant color. 
 
-::
-
-    $ pip install colorthief
+This fork adds the optional parameter ``ignore_white`` to disable that.
 
 Usage
 -----
 
 .. code:: python
 
-    from colorthief import ColorThief
+    from mycolorthief import ColorThief
 
     color_thief = ColorThief('/path/to/imagefile')
     # get the dominant color
-    dominant_color = color_thief.get_color(quality=1)
+    dominant_color = color_thief.get_color(quality=1, ignore_white=False)
     # build a color palette
     palette = color_thief.get_palette(color_count=6)
 
@@ -38,18 +35,19 @@ API
             """
             pass
 
-        def get_color(self, quality=10):
+        def get_color(self, quality=10, ignore_white=True):
             """Get the dominant color.
 
             :param quality: quality settings, 1 is the highest quality, the bigger
                             the number, the faster a color will be returned but
                             the greater the likelihood that it will not be the
                             visually most dominant color
+            :param ignore_white: should white be ignored?
             :return tuple: (r, g, b)
             """
             pass
 
-        def get_palette(self, color_count=10, quality=10):
+        def get_palette(self, color_count=10, quality=10, ignore_white=True):
             """Build a color palette.  We are using the median cut algorithm to
             cluster similar colors.
 
@@ -57,6 +55,7 @@ API
             :param quality: quality settings, 1 is the highest quality, the bigger
                             the number, the faster the palette generation, but the
                             greater the likelihood that colors will be missed.
+            :param ignore_white: should white be ignored?
             :return list: a list of tuple in the form (r, g, b)
             """
             pass

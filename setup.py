@@ -16,15 +16,15 @@ from setuptools import setup
 
 
 setup(
-    name='colorthief',
-    version='0.2.1',
+    name='mycolorthief',
+    version='0.2.2',
     url='https://github.com/fengsp/color-thief-py',
     license='BSD',
     author='Shipeng Feng',
     author_email='fsp261@gmail.com',
     description='A module for grabbing the color palette from an image.',
     long_description=__doc__,
-    py_modules=['colorthief'],
+    py_modules=['mycolorthief'],
     install_requires=[
         'Pillow'
     ],
